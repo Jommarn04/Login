@@ -1,0 +1,281 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login"
+        xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="Login.MainWindow"
+        mc:Ignorable="d"
+        Height="500" 
+        Width="800"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Loaded="Window_Loaded">
+
+    <Border Background="#fff"
+            CornerRadius="15">
+
+        <Grid>
+           
+
+            <!--Background Image-->
+            <StackPanel Width="450"
+                        HorizontalAlignment="Left">
+                <Frame x:Name="Images"
+                       Style="{StaticResource From Images}"
+                       Margin="0 -25 0 0">
+                    
+                    <!--Connect-->
+                    
+                </Frame>
+            </StackPanel>
+
+
+            <!--From Login-->
+            <Border Background="#DDE6ED"
+                    CornerRadius="0 10 10 0"
+                    Margin="10"
+                    x:Name="FromLogin"
+                    Style="{StaticResource From Login}"
+                    HorizontalAlignment="Right">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+
+                    <!--TextHeader-->
+                    <TextBlock Text="Welcome"
+                               Style="{StaticResource Textblock_Style}"/>
+                    
+                    <!--Text Animation-->
+                    <TextBlock x:Name="textblock"
+                               Text="Sign in To Applicaltion"
+                               Grid.Row="0"
+                               Style="{StaticResource TextblockText_Style}">
+                        <!--Animation-->
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard TargetName="textblock"
+                                                Duration="0:0:10"
+                                                AutoReverse="True"
+                                                RepeatBehavior="Forever">
+                                        <StringAnimationUsingKeyFrames Storyboard.TargetProperty="Text">
+                                            <DiscreteStringKeyFrame Value="S" KeyTime="0:0:0"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Si" KeyTime="0:0:0.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sig" KeyTime="0:0:1"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign" KeyTime="0:0:1.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign I" KeyTime="0:0:2"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In" KeyTime="0:0:2.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In T" KeyTime="0:0:3"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To" KeyTime="0:0:3.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To A" KeyTime="0:0:4"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To Ap" KeyTime="0:0:4.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To App" KeyTime="0:0:5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To Appl" KeyTime="0:0:5.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To Appli" KeyTime="0:0:6"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To Applic" KeyTime="0:0:6.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To Applica" KeyTime="0:0:7"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To Applical" KeyTime="0:0:7.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To Applicalt" KeyTime="0:0:8"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To Applicalti" KeyTime="0:0:8.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To Applicaltio" KeyTime="0:0:9"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Sign In To Applicaltion" KeyTime="0:0:9.5"></DiscreteStringKeyFrame>
+                                        </StringAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
+
+                    <!--Textbox-->
+                    <StackPanel Grid.Row="1"
+                                VerticalAlignment="Center"
+                                Margin="0 -30 0 0 ">
+
+                        <!--Textbox Username-->
+                        <TextBox Style="{StaticResource TextboxUser_Style}"
+                                 Tag="Username"
+                                 x:Name="Login_txtUser"/>
+
+                        <!--Textbox Password-->
+                        <PasswordBox Tag="Password"
+                                     x:Name="Login_txtPass"
+                                     Style="{StaticResource TextboxPass_Style}"
+                                     PasswordChanged="PasswordBox_PasswordChanged"/>
+                        <TextBlock Style="{StaticResource TextblockPass_Style}"
+                                   Text="Password"
+                                   x:Name="Login_txtbPass"
+                                   MouseDown="txtbPass_MouseDown"
+                                   Cursor="IBeam"/>
+                    </StackPanel>
+                    
+                    <!--Button Sign In-->
+                    <Button x:Name="btn_Login"
+                            Grid.Row="2"
+                            Style="{StaticResource btn_login}"
+                            Content="Sign In"
+                            Margin="0 -10 0 0"/>
+
+                    <!--Button Create Account-->
+                    <Button Style="{StaticResource btnSign Up_Style}"
+                            Grid.Row="2"
+                            Content="Create Account?"
+                            x:Name="btn_Sign_Up"
+                            Click="btn_Sign_Up_Click"/>
+
+                    <!--Footer-->
+                    <StackPanel Grid.Row="2"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="0 60 0 0">
+                        <Button Style="{StaticResource Google}"/>
+                        <Button Style="{StaticResource Facebook}"/>
+                        <Button Style="{StaticResource Twitch}"/>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+
+
+            <!--From Regaiter-->
+            <Border Background="#F7D060"
+                    CornerRadius="0 10 10 0"
+                    Margin="10"
+                    x:Name="FromRegister"
+                    Width="0"
+                    HorizontalAlignment="Right">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+
+                    <!--TextHeader-->
+                    <TextBlock Text="Register"
+                               Style="{StaticResource TextblockRegister_Style}"/>
+
+                    <!--Text Animation-->
+                    <TextBlock x:Name="Register_textblock"
+                               Text="Create Account"
+                               Grid.Row="0"
+                               Style="{StaticResource TextblockTextRegister_Style}">
+                        <!--Animation-->
+                        <TextBlock.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard TargetName="Register_textblock"
+                                                Duration="0:0:7"
+                                                AutoReverse="True"
+                                                RepeatBehavior="Forever">
+                                        <StringAnimationUsingKeyFrames Storyboard.TargetProperty="Text">
+                                            <DiscreteStringKeyFrame Value="C" KeyTime="0:0:0"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Cr" KeyTime="0:0:0.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Cre" KeyTime="0:0:1"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Crea" KeyTime="0:0:1.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Creat" KeyTime="0:0:2"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Create" KeyTime="0:0:2.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Create A" KeyTime="0:0:3"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Create Ac" KeyTime="0:0:3.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Create Acc" KeyTime="0:0:4"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Create Acco" KeyTime="0:0:4.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Create Accou" KeyTime="0:0:5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Create Accoun" KeyTime="0:0:5.5"></DiscreteStringKeyFrame>
+                                            <DiscreteStringKeyFrame Value="Create Account" KeyTime="0:0:6"></DiscreteStringKeyFrame>
+                                           
+                                        </StringAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </TextBlock.Triggers>
+                    </TextBlock>
+
+                    <!--Textbox-->
+                    <StackPanel Grid.Row="1"
+                                VerticalAlignment="Center"
+                                Margin="0 -30 0 0 ">
+
+                        <!--Textbox Username-->
+                        <TextBox Style="{StaticResource TextboxEmail_Style}"
+                                 Tag="Email"
+                                 x:Name="Register_txtEmail"/>
+
+                        <!--Textbox Username-->
+                        <TextBox Style="{StaticResource TextboxUser_Style}"
+                                 Tag="Username"
+                                 x:Name="Register_txtUser"/>
+
+                        <!--Textbox Password-->
+                        <PasswordBox Tag="Password"
+                                     x:Name="Register_txtPass"
+                                     Style="{StaticResource TextboxPass_Style}"
+                                     PasswordChanged="Register_txtPass_PasswordChanged"/>
+                        <TextBlock Style="{StaticResource TextblockPass_Style}"
+                                   Text="Password"
+                                   x:Name="Register_txtbPass"
+                                   MouseDown="Register_txtbPass_MouseDown"
+                                   Cursor="IBeam"/>
+                    </StackPanel>
+
+                    <!--Button Sign In-->
+                    <Button x:Name="btn_Register"
+                            Grid.Row="2"
+                            Style="{StaticResource btn_Register}"
+                            Content="Sign Up"
+                            Margin="0 -10 0 0"/>
+
+                    <!--Button Sign In-->
+                    <Button Style="{StaticResource btnSign In_Style}"
+                            Grid.Row="2"
+                            Content="Sing In To Applicaltion"
+                            x:Name="btn_Sign_In"
+                            Click="btn_Sign_In_Click"/>
+
+                    <!--Footer-->
+                    <StackPanel Grid.Row="2"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="0 60 0 0">
+                        <Button Style="{StaticResource Google}"/>
+                        <Button Style="{StaticResource Facebook}"/>
+                        <Button Style="{StaticResource Twitch}"/>
+                    </StackPanel>
+
+                </Grid>
+            </Border>
+
+
+            <!--NavBar-->
+            <StackPanel Style="{StaticResource NavBar}"
+                        Margin="101 0 0 0"
+                        x:Name="NavBar">
+
+                <RadioButton Style="{StaticResource rbtn_User}"
+                             Content="User"
+                             x:Name="rbtn_User"
+                             Click="rbtn_User_Click"/>
+                <RadioButton Style="{StaticResource rbtn_Admin}"
+                             Content="Admin"
+                             x:Name="rbtn_Admin"
+                             Click="rbtn_Admin_Click"/>
+
+            </StackPanel>
+
+            <!--Button_Close-->
+            <Button Grid.Column="1"
+                    Style="{StaticResource btn_close}"
+                    x:Name="btn_close"
+                    Click="btn_close_Click"/>
+
+        </Grid>
+    </Border>
+</Window>
